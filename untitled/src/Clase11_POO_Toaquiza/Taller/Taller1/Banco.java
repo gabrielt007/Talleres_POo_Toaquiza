@@ -1,4 +1,4 @@
-package Taller1;
+package Clase11_POO_Toaquiza.Taller.Taller1;
 
 import javax.swing.*;
 
