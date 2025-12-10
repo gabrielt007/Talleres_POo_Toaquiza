@@ -1,4 +1,6 @@
-package Clase11_POO_Toaquiza.Taller.Taller1;
+package Clase11_POO_Toaquiza.Taller.Taller1.SistemaBancario;
+
+import Clase11_POO_Toaquiza.Taller.Taller1.Usuarios_excepcion.Usuario;
 
 import javax.swing.*;
 
