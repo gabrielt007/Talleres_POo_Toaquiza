@@ -62,7 +62,6 @@ public class BancoPrincipal extends JFrame{
                 }else{
                     boolean encontrado=false;
                     for(Usuario u:listaUsuarios){
-                        System.out.println(u.getUsuario());
                         if (u.getUsuario().equalsIgnoreCase(destinatario)){
                             usuarioIngresado.transferir(monto,destinatario);
                             saldo.setText(String.valueOf(usuarioIngresado.getSaldo()));
