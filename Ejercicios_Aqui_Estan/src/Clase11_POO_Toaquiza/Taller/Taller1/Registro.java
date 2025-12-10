@@ -23,12 +23,22 @@ public class Registro extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
-                    String nombre=txtUser.getText(), clave=txtClave.getText();
+                    boolean encontrado = true;
+                    String nombre= String.valueOf(txtUser.getText().trim().isEmpty()), clave= String.valueOf(txtClave.getText().trim().isEmpty());
                     double monto=Double.parseDouble(txtMonto.getText());
-                    listaUsuarios.add(new Usuario(nombre,clave,monto));
-                    JOptionPane.showMessageDialog(null,"REGISTRO EXITOSO");
-                    new Login();
-                    Registro.this.dispose();
+                    for (Usuario u : listaUsuarios){
+                        if (u.getUsuario().equals(nombre)){
+                            encontrado=false;
+                        }
+                    }
+                    if(encontrado) {
+                        listaUsuarios.add(new Usuario(nombre,clave,monto));
+                        JOptionPane.showMessageDialog(null,"REGISTRO EXITOSO");
+                        new Login();
+                        Registro.this.dispose();
+                    }else {
+                        JOptionPane.showMessageDialog(null, "NOMBRE DE USUARIO YA EXISTENTE");
+                    }
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Monto inválido. Ingresa un número válido.");
                     txtMonto.setText("");

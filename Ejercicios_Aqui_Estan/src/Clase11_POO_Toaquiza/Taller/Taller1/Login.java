@@ -13,14 +13,15 @@ public class Login extends JFrame{
     private JButton ingresarButton;
     private JButton registrarButton;
     private JPanel login_panel;
+
     public Login () {
         ingresarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String nombre=txtUse.getText(), pass=txtPass.getText();
+                String nombre= String.valueOf(txtUse.getText().trim().isEmpty()), pass= String.valueOf(txtPass.getText().trim().isEmpty());
                 boolean encontrado=false;
                 for (Usuario u: listaUsuarios){
-                    if (u.getUsuario() ==nombre && u.getClave() ==pass) {
+                    if (u.getUsuario().equals(nombre) && u.getClave().equals(pass)) {
                         encontrado=true;
                     }
                 }
