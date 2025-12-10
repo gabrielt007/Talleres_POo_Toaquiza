@@ -16,7 +16,7 @@ public class BancoPrincipal extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
         setSize(500,500);
-
+        //saldo.setText();
         depositoButton.addActionListener(e -> {
             try {
                 double monto = Double.parseDouble(JOptionPane.showInputDialog("Ingresa el monto a depositar: $"));

@@ -27,7 +27,7 @@ public class Registro extends JFrame{
                     double monto=Double.parseDouble(txtMonto.getText());
                     listaUsuarios.add(new Usuario(nombre,clave,monto));
                     JOptionPane.showMessageDialog(null,"REGISTRO EXITOSO");
-                    new BancoPrincipal();
+                    new Login();
                     Registro.this.dispose();
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Monto inválido. Ingresa un número válido.");
