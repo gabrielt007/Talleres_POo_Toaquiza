@@ -5,9 +5,9 @@ public class Usuario {
     private double monto;
 
     public Usuario (String usuario,String clave, double monto) throws DatoInvalidoExcepcion {
-        if (usuario.isEmpty() || usuario.length() < 4) throw new DatoInvalidoExcepcion("El usuario es invalido.");
-        if (clave.isEmpty() || clave.length() < 4) throw new DatoInvalidoExcepcion("La clave es invalida.");
-        if (monto <= 0) {throw new DatoInvalidoExcepcion("El monto es invalido.");}
+        if (usuario.isEmpty() || usuario.length() < 4) throw new DatoInvalidoExcepcion("Usuario invalido, un maximo de 4 caracteres.");
+        if (clave.isEmpty() || clave.length() < 4) throw new DatoInvalidoExcepcion("Clave invalida, un maximo de 4 caracteres.");
+        if (monto <= 0) {throw new DatoInvalidoExcepcion("Monto invalido, debe ser mayor a 0.");}
         this.usuario=usuario;
         this.clave=clave;
         this.monto=monto;
