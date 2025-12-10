@@ -17,14 +17,15 @@ public class BancoPrincipal extends JFrame{
         setContentPane(Banca);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
-        setSize(500,500);
+        pack();
         saldo.setText(String.valueOf(usuarioIngresado.getSaldo()));
-        usuario.setText(usuarioIngresado.getNombre());
+        usuario.setText(usuarioIngresado.getNombre().toUpperCase());
         depositoButton.addActionListener(e -> {
             try {
                 double monto = Double.parseDouble(JOptionPane.showInputDialog("Ingresa el monto a depositar: $"));
                 if (monto > 0) {
                     usuarioIngresado.deposito(monto);
+                    saldo.setText(String.valueOf(usuarioIngresado.getSaldo()));
                 } else {
                     JOptionPane.showMessageDialog(null, "Monto invalido", "ERROR", JOptionPane.WARNING_MESSAGE);
                 }
@@ -40,6 +41,7 @@ public class BancoPrincipal extends JFrame{
                     JOptionPane.showMessageDialog(null, "Monto invalido", "ERROR", JOptionPane.WARNING_MESSAGE);
                 }else{
                     usuarioIngresado.retiro(monto);
+                    saldo.setText(String.valueOf(usuarioIngresado.getSaldo()));
                 }
             }catch (NumberFormatException ex){
                 JOptionPane.showMessageDialog(null,"Monto invalido","ERROR",JOptionPane.ERROR_MESSAGE);
@@ -55,12 +57,20 @@ public class BancoPrincipal extends JFrame{
                 }else if(destinatario.trim().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Usuario vacio", "ERROR", JOptionPane.WARNING_MESSAGE);
                 }else{
+                    boolean encontrado=false;
                     for(Usuario u:listaUsuarios){
-                        if (u.getUsuario().equals(destinatario)){
+                        System.out.println(u.getUsuario());
+                        if (u.getUsuario().equalsIgnoreCase(destinatario)){
                             usuarioIngresado.transferir(monto,destinatario);
-                        }else{
-                            JOptionPane.showMessageDialog(null, "Usuario no encontrado", "ERROR", JOptionPane.WARNING_MESSAGE);
+                            saldo.setText(String.valueOf(usuarioIngresado.getSaldo()));
+                            JOptionPane.showMessageDialog(null,"Transferencia exitosa a "+destinatario.toUpperCase());
+                            encontrado=true;
+                            break;
                         }
+                    }
+
+                    if(!encontrado){
+                        JOptionPane.showMessageDialog(null, "Usuario no encontrado", "ERROR", JOptionPane.WARNING_MESSAGE);
                     }
 
                 }

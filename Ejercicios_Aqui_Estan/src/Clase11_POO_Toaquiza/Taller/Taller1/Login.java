@@ -18,7 +18,7 @@ public class Login extends JFrame{
         ingresarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String nombre= String.valueOf(txtUse.getText().trim().isEmpty()), pass= String.valueOf(txtPass.getText().trim().isEmpty());
+                String nombre=txtUse.getText().trim(), pass=txtPass.getText().trim();
                 double monto=0;
                 boolean encontrado=false;
                 for (Usuario u: listaUsuarios){

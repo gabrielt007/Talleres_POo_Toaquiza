@@ -9,8 +9,8 @@ public class Registro extends JFrame{
     private JTextField txtUser;
     private JTextField txtClave;
     private JTextField txtMonto;
-    private JPanel registro_panel;
     private JPanel registro;
+    private JPanel registro_panel;
     private JButton registrarButton;
 
     public Registro () {
@@ -24,10 +24,11 @@ public class Registro extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 try{
                     boolean encontrado = true;
-                    String nombre= String.valueOf(txtUser.getText().trim().isEmpty()), clave= String.valueOf(txtClave.getText().trim().isEmpty());
+                    String nombre=txtUser.getText().trim();
+                    String clave=txtClave.getText().trim();
                     double monto=Double.parseDouble(txtMonto.getText());
                     for (Usuario u : listaUsuarios){
-                        if (u.getUsuario().equals(nombre)) {
+                        if (u.getUsuario().equalsIgnoreCase(nombre)) {
                             encontrado = false;
                             break;
                         }
@@ -39,9 +40,6 @@ public class Registro extends JFrame{
                         Registro.this.dispose();
                     }else {
                         JOptionPane.showMessageDialog(null, "NOMBRE DE USUARIO YA EXISTENTE");
-                        txtUser.setText("");
-                        txtClave.setText("");
-                        txtMonto.setText("");
                     }
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Monto inválido. Ingresa un número válido.");
