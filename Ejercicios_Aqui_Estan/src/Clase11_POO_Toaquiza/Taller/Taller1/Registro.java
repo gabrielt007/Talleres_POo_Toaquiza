@@ -27,8 +27,9 @@ public class Registro extends JFrame{
                     String nombre= String.valueOf(txtUser.getText().trim().isEmpty()), clave= String.valueOf(txtClave.getText().trim().isEmpty());
                     double monto=Double.parseDouble(txtMonto.getText());
                     for (Usuario u : listaUsuarios){
-                        if (u.getUsuario().equals(nombre)){
-                            encontrado=false;
+                        if (u.getUsuario().equals(nombre)) {
+                            encontrado = false;
+                            break;
                         }
                     }
                     if(encontrado) {
@@ -38,6 +39,9 @@ public class Registro extends JFrame{
                         Registro.this.dispose();
                     }else {
                         JOptionPane.showMessageDialog(null, "NOMBRE DE USUARIO YA EXISTENTE");
+                        txtUser.setText("");
+                        txtClave.setText("");
+                        txtMonto.setText("");
                     }
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Monto inválido. Ingresa un número válido.");

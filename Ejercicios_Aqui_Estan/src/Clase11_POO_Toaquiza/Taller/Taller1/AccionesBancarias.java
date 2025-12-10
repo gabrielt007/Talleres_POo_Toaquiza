@@ -1,5 +1,7 @@
 package Clase11_POO_Toaquiza.Taller.Taller1;
 
+import static Clase11_POO_Toaquiza.Taller.Taller1.Main.listaUsuarios;
+
 public class AccionesBancarias {
     private double saldo;
     private String nombre;
@@ -9,21 +11,28 @@ public class AccionesBancarias {
     }
 
     public void deposito(double monto){
-        if (monto>0){
-            saldo+=monto;
-        }
+        saldo+=monto;
     }
 
     public void retiro(double monto){
-        if (monto>saldo||monto<=0){
-            return;
-        }
         saldo-=monto;
     }
 
     public void transferir(double monto,String usuarioTranferencia){
-        if (monto>0 && monto<=saldo){
-            //VALIDACIONES DE TRANSFERENCIA
+        for(Usuario u:listaUsuarios){
+            if (u.getUsuario().equals(usuarioTranferencia)){
+                saldo-=monto;
+                u.setMonto(u.getMonto()+monto);
+                break;
+            }
         }
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 }

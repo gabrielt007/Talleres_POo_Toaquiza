@@ -19,10 +19,12 @@ public class Login extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String nombre= String.valueOf(txtUse.getText().trim().isEmpty()), pass= String.valueOf(txtPass.getText().trim().isEmpty());
+                double monto=0;
                 boolean encontrado=false;
                 for (Usuario u: listaUsuarios){
                     if (u.getUsuario().equals(nombre) && u.getClave().equals(pass)) {
                         encontrado=true;
+                        monto=u.getMonto();
                     }
                 }
                 if(!encontrado){
@@ -31,7 +33,8 @@ public class Login extends JFrame{
                     JOptionPane.showMessageDialog(null,"USUARIO O CLAVE INCORRECTOS");
                 }else{
                     JOptionPane.showMessageDialog(null,"INGRESO EXISTOSO");
-                    new BancoPrincipal();
+                    AccionesBancarias acciones=new AccionesBancarias(monto,nombre);
+                    new BancoPrincipal(acciones);
                     Login.this.dispose();
                 }
             }
