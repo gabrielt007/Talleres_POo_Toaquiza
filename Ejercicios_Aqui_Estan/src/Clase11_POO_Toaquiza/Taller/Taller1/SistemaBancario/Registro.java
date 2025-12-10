@@ -43,10 +43,10 @@ public class Registro extends JFrame{
                         new Login();
                         Registro.this.dispose();
                     }else {
-                        JOptionPane.showMessageDialog(null, "NOMBRE DE USUARIO YA EXISTENTE");
+                        JOptionPane.showMessageDialog(null, "NOMBRE DE USUARIO YA EXISTENTE","EXISTENTE",JOptionPane.WARNING_MESSAGE);
                     }
                 } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(null, "Monto inválido. Ingresa un número válido.");
+                    JOptionPane.showMessageDialog(null, "Monto inválido. Ingresa un número válido.","INVALIDO",JOptionPane.ERROR_MESSAGE);
                     txtMonto.setText("");
                 } catch (DatoInvalidoExcepcion ex) {
                     JOptionPane.showMessageDialog(null, ex.getMessage());

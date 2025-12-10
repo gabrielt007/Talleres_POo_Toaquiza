@@ -32,7 +32,7 @@ public class Login extends JFrame{
                 if(!encontrado){
                     txtPass.setText("");
                     txtUse.setText("");
-                    JOptionPane.showMessageDialog(null,"USUARIO O CLAVE INCORRECTOS");
+                    JOptionPane.showMessageDialog(null,"USUARIO O CLAVE INCORRECTOS","DENEGADO",JOptionPane.WARNING_MESSAGE);
                 }else{
                     JOptionPane.showMessageDialog(null,"INGRESO EXISTOSO");
                     AccionesBancarias acciones=new AccionesBancarias(monto,nombre);
