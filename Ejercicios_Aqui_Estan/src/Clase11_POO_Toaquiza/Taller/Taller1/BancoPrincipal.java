@@ -27,6 +27,7 @@ public class BancoPrincipal extends JFrame{
                 if (monto > 0) {
                     usuarioIngresado.deposito(monto);
                     saldo.setText(String.valueOf(usuarioIngresado.getSaldo()));
+                    JOptionPane.showMessageDialog(null,"Transaccion exitosa");
                 } else {
                     JOptionPane.showMessageDialog(null, "Monto invalido", "ERROR", JOptionPane.WARNING_MESSAGE);
                 }
@@ -43,6 +44,7 @@ public class BancoPrincipal extends JFrame{
                 }else{
                     usuarioIngresado.retiro(monto);
                     saldo.setText(String.valueOf(usuarioIngresado.getSaldo()));
+                    JOptionPane.showMessageDialog(null,"Transaccion exitosa");
                 }
             }catch (NumberFormatException ex){
                 JOptionPane.showMessageDialog(null,"Monto invalido","ERROR",JOptionPane.ERROR_MESSAGE);
