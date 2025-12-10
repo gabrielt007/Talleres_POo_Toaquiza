@@ -18,6 +18,7 @@ public class BancoPrincipal extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
         pack();
+        setLocationRelativeTo(null);
         saldo.setText(String.valueOf(usuarioIngresado.getSaldo()));
         usuario.setText(usuarioIngresado.getNombre().toUpperCase());
         depositoButton.addActionListener(e -> {

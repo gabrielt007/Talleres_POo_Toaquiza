@@ -51,6 +51,7 @@ public class Login extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(400,300);
         setTitle("Banco Togma-Bryan S.A");
+        setLocationRelativeTo(null);
     }
 
     public static void main() {

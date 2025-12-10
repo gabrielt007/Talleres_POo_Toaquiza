@@ -19,6 +19,7 @@ public class Registro extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Registro Banco Togma-Bryan");
         setSize(400,270);
+        setLocationRelativeTo(null);
         registrarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
